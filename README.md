@@ -1,70 +1,50 @@
-# Getting Started with Create React App
+<h1>Tic-Tac-Toe Game React18</h1>
+This is a simple tic-tac-toe game built using React from React.dev Documentation.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<h3>Getting Started</h3>
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
 
-## Available Scripts
+<h4>Prerequisites</h4>
+You need to have Node.js and npm installed on your machine.
 
-In the project directory, you can run:
+<h4>Installing</h4>
+<ul>
+<li>Clone the repository</li>
+ <li>Navigate to the project directory in your terminal</li>
+ <li>Run "npm install" to install the dependencies</li>
+ <li>Run "npm start" to start the development server</li>
+ <li>Open http://localhost:3000 to view it in the browser</li>
+</ul>
 
-### `npm start`
+<h3>Game Rules</h3>
+<ul>
+<li>The game is played on a 3x3 grid</li>
+  <li>Players take turns placing their respective mark (X or O) on an empty square.</li>
+  <li>The first player to get three of their marks in a row (horizontally, vertically, or diagonally) wins the game.</li>
+  <li>If all squares are filled and no player has won, the game is a draw.</li>
+</ul>
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+<h3>Code Structure</h3>
+<h4>"Square" Component</h4>
+This component renders a button with the value passed as a prop. When the button is clicked, it calls the "onSquareClick" function passed as a prop.
 
-### `npm test`
+<h4>"Board" Component</h4>
+This component renders the 3x3 grid of squares. It receives the current state of the game (an array of 9 values, either "X", "O", or null) as a prop, along with a boolean value indicating which player's turn it is. It also receives a callback function onPlay to be called when a square is clicked.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+When a square is clicked, handleClick function is called. It checks if the clicked square is already filled or if a player has already won. If either of those conditions is true, it returns early. Otherwise, it updates the game state by updating the nextSquares array and calling onPlay with the updated state.
 
-### `npm run build`
+The component also checks if there is a winner using the calculateWinner function. If there is a winner, it displays the winner. Otherwise, it displays which player's turn it is.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+<h4>"Game" Component</h4>
+This component is the top-level component of the game. It maintains the game history in the history state variable, where each element of the array is an array representing the state of the game at that move. It also maintains the currentMove state variable, which represents the index of the current move.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+When a move is made, the handlePlay function is called, which updates the history state variable and the currentMove state variable.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+The component also renders a list of buttons, one for each move in the game history. When a button is clicked, it calls the jumpTo function with the index of the move to jump to.
 
-### `npm run eject`
+<h4>"calculateWinner" Function</h4>
+This function takes an array representing the state of the game and checks if there is a winner. It does this by checking all possible winning combinations of squares.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+<h2>Enjoy The Game!</h2>
