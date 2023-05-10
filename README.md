@@ -1,4 +1,4 @@
-<h1>Tic-Tac-Toe Game React18</h1>
+<h1>Tic-Tac-Toe Game React-18</h1>
 This is a simple tic-tac-toe game built using React from React.dev Documentation.
 
 <h3>Getting Started</h3>
